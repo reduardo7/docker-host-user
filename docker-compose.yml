@@ -5,11 +5,11 @@ services:
     image: reduardo7/docker-host-user
     environment:
       # Required:
-      - "HOST_USER_NAME=$USER"
-      - "HOST_USER_ID=$UID"
-      - "HOST_GROUP_NAME=$(id -g -n $USERNAME)"
-      - "HOST_GROUP_ID=$(id -g $USERNAME)"
+      HOST_USER_NAME: "myuser"
+      HOST_USER_ID: "7007"
+      HOST_GROUP_NAME: "mygroup"
+      HOST_GROUP_ID: "8008"
       # Optional:
-      - "USER_SHELL=/bin/bash" # Default: /bin/bash
-      - "USER_PASSWORD=$USER" # Default: ${HOST_USER_NAME}
-      - "PATH_HOME=/home/$USER" # Default: /home/${HOST_USER_NAME}
+      USER_SHELL: "/bin/bash" # Default: /bin/bash
+      USER_PASSWORD: "myuserpwd" # Default: ${HOST_USER_NAME}
+      PATH_HOME: "/home/myuserhome" # Default: /home/${HOST_USER_NAME}

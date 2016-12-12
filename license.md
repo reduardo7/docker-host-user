@@ -1,0 +1,1 @@
+View [license information](https://github.com/reduardo7/docker-host-user/blob/master/LICENSE) for the software contained in this image.

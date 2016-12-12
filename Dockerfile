@@ -9,5 +9,5 @@ RUN apt-get update && \
 WORKDIR /
 ADD init-user.sh /init-user.sh
 RUN chmod a+x /init-user.sh
-ENTRYPOINT /init-user.sh
-CMD echo "Current user: \$USER"
+
+ENTRYPOINT ["/init-user.sh"]

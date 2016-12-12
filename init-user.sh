@@ -11,7 +11,7 @@ if ! getent passwd ${HOST_USER_NAME} > /dev/null 2>&1
 
     # Create home directory if not exists
     __CREATE_PATH_HOME__=false
-    if [ -d "${PATH_HOME}" ]; then
+    if [ ! -d "${PATH_HOME}" ]; then
       __CREATE_PATH_HOME__=true
       mkdir -p "${PATH_HOME}"
     fi
@@ -45,4 +45,6 @@ if ! getent passwd ${HOST_USER_NAME} > /dev/null 2>&1
   fi
 
 # Run as User
-sudo -E -u ${HOST_USER_NAME} "$@"
+script_cmd="$(echo "$@" | xargs)"
+echo "Running '$script_cmd' as ${HOST_USER_NAME}"
+sudo -E -u ${HOST_USER_NAME} bash -c "$script_cmd"

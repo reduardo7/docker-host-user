@@ -5,6 +5,7 @@ services:
     #image: reduardo7/docker-host-user
     build:
       context: .
+    command: "echo 'User: $$USERNAME' ; echo 'UID: $$UID'"
     environment:
       # Required:
       HOST_USER_NAME: "myuser"

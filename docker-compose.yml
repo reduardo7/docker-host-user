@@ -2,7 +2,9 @@ version: "2"
 
 services:
   app:
-    image: reduardo7/docker-host-user
+    #image: reduardo7/docker-host-user
+    build:
+      context: .
     environment:
       # Required:
       HOST_USER_NAME: "myuser"

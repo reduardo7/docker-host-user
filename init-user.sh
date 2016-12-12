@@ -24,8 +24,7 @@ if ! getent passwd ${HOST_USER_NAME} > /dev/null 2>&1
       -u ${HOST_USER_ID} -g ${HOST_GROUP_ID} \
       -d ${PATH_HOME} \
       -s ${USER_SHELL} \
-      -c "Host User ${HOST_USER_NAME}"
-      #--password ${USER_PASSWORD} \
+      -c "Host User ${HOST_USER_NAME}" \
       ${HOST_USER_NAME}
 
     # Set User Password

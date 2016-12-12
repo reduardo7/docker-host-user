@@ -1,9 +1,5 @@
 # docker-host-user: Host User &amp; Group
 
-# Warning
-
-
-
 # Start
 
 ```bash

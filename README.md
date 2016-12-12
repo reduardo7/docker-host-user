@@ -1,16 +1,37 @@
 # docker-host-user: Host User &amp; Group
 
+# Warning
+
+
+
 # Start
 
 ```bash
-$ docker run --name my-user-test -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+docker run --rm -i -t \
+  --name my-user-test \
+  -e HOST_USER_NAME=$USERNAME \
+  -e HOST_USER_ID=$UID \
+  -e HOST_GROUP_NAME=$(id -g -n $USERNAME || echo $USERNAME) \
+  -e HOST_GROUP_ID=$(id -g $USERNAME) \
+  reduardo7/docker-host-user
+```
+
+# Usage
+
+You can use this image as a base image (`FROM reduardo7/docker-host-user`) to run your app with your current user and group.
+
+## Sample Dockerfile
+
+```Dockerfile
+FROM reduardo7/docker-host-user
+...
 ```
 
 # Environment Variables
 
 ## HOST_USER_NAME
 
-**User name**. You can use `$USER` to get current *user name*.
+**User name**. You can use `$USERNAME` to get current *user name*.
 
 ## HOST_USER_ID
 
@@ -62,5 +83,4 @@ services:
       USER_SHELL: "/bin/bash" # Default: /bin/bash
       USER_PASSWORD: "myuserpwd" # Default: ${HOST_USER_NAME}
       PATH_HOME: "/home/myuserhome" # Default: /home/${HOST_USER_NAME}
-
 ```

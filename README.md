@@ -1,5 +1,7 @@
 # docker-host-user: Host User &amp; Group
 
+Create containers with current/custom user and group. Ideal for development environments.
+
 You can use this image to run your app with your current/custom user and group.
 
 ## Start
